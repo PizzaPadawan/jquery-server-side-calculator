@@ -16,21 +16,25 @@ SETUP:
         - [x] jquery.js
         - [x] index.html
         - [x] style.css
-- [] npm init --yes
-- [] npm i express
-- [] package.json > "start:" "node server/server.js"
+- [x] npm init --yes
+- [x] npm i express
+- [x] package.json > "start:" "node server/server.js"
 
 
 BASE MODE:
-- [] Create 2 input elements and a type of mathematical operation to select. 
-    - [] SERVER: POST to '/history' that takes equation objects
-    - [] TEST IN POSTMAN
-- [] Create a submit button that will send the equation object to the server via POST.
-    - [] SERVER: GET request to return the actual calculation.
-    - [] TEST IN POSTMAN
-- [] Create a C button that will clear user input fields.
-- [] Keep a historical record of all problems and solutions on the server to be displayed on the DOM.
-    - [] SERVER: '/history' will store all equation objects
+- [x] Create 2 input elements and a type of mathematical operation to select. 
+    - [x] SERVER: POST to '/history' that takes equation objects
+    - [x] TEST IN POSTMAN
+    - [x] HTML: Setup inputs and buttons with IDs 
+- [x] Create a submit button that will send the equation object to the server via POST.
+    - [x] client.js: $.ajax POST referencing inputs
+    - [x] SERVER: GET request to return the actual calculation.
+    - [x] TEST IN POSTMAN
+- [x] Create a C button that will clear user input fields.
+    - [x] client.js: input.val('') attached to C button
+- [x] Keep a historical record of all problems and solutions on the server to be displayed on the DOM.
+    - [x] SERVER: '/history' will store all equation objects
+    - [x] client.js $.ajax GET referencing '/history' to display on DOM
 
 STRETCH GOALS:
 - [] Convert the interface to look and behave like an actual calculator
