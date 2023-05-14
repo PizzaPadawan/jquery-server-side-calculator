@@ -39,15 +39,28 @@ function getHistory(){
 function historyAppend(response){
     let x = (response.length - 1)
     $('#history').empty();
-    $('#solution').text(`${response[x].solution}`);
     for(math of response){
         $('#history').append(`
         <li>${math.num1} ${math.operator} ${math.num2} = ${math.solution}</li>
         `)
         $('#numInput').val('');
     }
+    $('#solution').text(`${response[x].solution}`);
 }
 
+function clearHistory(){
+    $.ajax({
+        method: 'DELETE',
+        url: '/history'
+    }).then(function (response){
+        console.log(response)
+        console.log("in clearHistory")
+    })
+    getHistory();
+    $('#solution').text('');
+}
+
+//an absurd amount of click handlers
 function clickHandlers(){
     $('#1').on('click', button1);
     $('#2').on('click', button2);
@@ -69,6 +82,7 @@ function clickHandlers(){
         $('#numInput').val('');
         operator = '';
     })
+    $('#clearHistory').on('click', clearHistory);
 }
 
 // calculator buttons:

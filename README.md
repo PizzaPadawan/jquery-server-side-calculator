@@ -10,7 +10,7 @@
 SETUP: 
 - [x] server folder
     - [x] server.js
-    - [] modules folder
+    - [x] modules folder
     - [x] public folder
         - [x] client.js
         - [x] jquery.js

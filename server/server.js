@@ -36,6 +36,11 @@ app.post('/history', (req, res) => {
     res.sendStatus(200);
 })
 
+app.delete('/history', (req, res) => {
+    console.log('clearing history')
+    res.send(historyArray.length = 0);
+})
+
 app.listen(PORT, () =>{
-    console.log('listening on port', PORT)
+    console.log('listening on port', PORT);
 });
