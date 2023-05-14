@@ -3,9 +3,40 @@
 
 ## Description
 
+Welcome to my server-side calculator! 
+In this project, I used jQuery ajax requests to send equations to the server to be calculated, and then have them appended to the page.
+
+Though still a bit crude, I've put some work into making this actually look and function like an actual calculator.
+
+## Screenshot
+
+![calculator interface](images/final.png)
+
+## Usage
+
+Clicking each button will add that value to the input field. 
+
+It's pretty simple, so it will only function properly if you give it 2 numbers and 1 operator. Your solution will show in the input field when you hit `=`. To input another equation, or to otherwise clear the input field, press the `C` button.
+
+Your calculator history will appear on the "yellow paper" below. To clear it, simply click the "Clear History" eraser.
+
+## Built with
+
+Backend: 
+- node.js
+- npm
+- express
+
+Frontend:
+- JavaScript
+- jQuery
+- HTML
+- CSS
 
 
 ## TO DO:
+
+Here's a detailed to do list that shows how I approached this project.
 
 SETUP: 
 - [x] server folder
@@ -49,7 +80,7 @@ STRETCH GOALS:
 - [x] Allow a user to click on an entry in the history list to re-run that calculation.
 
 BONUS ADD / CREATIVE IDEAS:
-- [] Use CSS to more accurately make it look like a calculator.
+- [x] Use CSS to more accurately make it look like a calculator.
 
 ETHOS / RULES:
 - don't even THINK about touching the front end until you have your server-side all planned out.

@@ -3,6 +3,16 @@
     src: url('./fonts/DS-DIGII.TTF');
 }
 
+@font-face {
+    font-family: 'Pink Pearl Eraser';
+    src: url('./fonts/Leytonstone-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'KidDOS';
+    src: url('./fonts/KIdDOS-Regular.ttf');
+}
+
 body {
     background-image: url('https://images.unsplash.com/photo-1597113366853-fea190b6cd82?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');
     background-attachment: fixed;
@@ -12,49 +22,93 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    font-size: 20px;
+    font-size: 40px;
+    margin: 3% 0;
 }
 
 header {
+    font-family: 'KidDOS';
+    font-size: 20px;
     padding: 10px;
     background-color: khaki;
     margin: 5px;
 }
 
 .calculator {
-    width: 30%;
-    height: 50%;
     display: inline-flex;
     flex-direction: column;
     background-color:cadetblue;
-    border: 2px solid gray;
-    margin: 0 25%;
-    padding: 10px;
+    border: 5px solid gray;
+    margin: 1% 25%;
+    padding: 2%;
+    border-radius: 10px;
 }
 
 .calculator button {
-    font-size: 20px;
+    font-size: 40px;
+}
+
+#C {
+    padding: 1px 3px;
 }
 
 #numInput {
-    width: 72px;
-    height: 24px;
+    background-color: lightgray;
+    width: 107.75px;
+    height: 46px;
 }
 
 #numInput, #solution {
     font-family: 'Digital';
-    font-size: 20px;
+    font-size: 40px;
 }
 
+#add {
+    padding: 1px 5.455px;
+}
 
-
-
+#multiply {
+    padding: 1px 10.03px;
+}
 
 #decimal, #divide {
-    padding: 1px 9px;
+    padding: 1px 12.12px;
 }
 
 #subtract {
-    padding: 1px 8px;
+    padding: 1px 10.92px;
+}
+
+#equals {
+    padding: 1px 5.89px;
+}
+
+.historySection{
+    margin: 1%;
+}
+
+#clearHistory {
+    background-color: lightpink;
+    font-family: 'Pink Pearl Eraser';
+    font-size: 40px;
+    padding: 10px 10px 25px 0px;
+    border-left: 25px solid rgb(207, 138, 149);
+    border-bottom: 2px solid rgb(129, 80, 88);
+    border-right: 0;
+    border-top: 0;
+    border-radius: 10px;
+}
+
+
+.historyList {
+    font-family: 'KidDOS';
+    background-color: khaki;
+}
+
+.historyList li {
+    padding: 0 20px;
+    border-top: 1px solid lightblue;
+    border-left: 1px solid lightcoral;
+    border-bottom: 1px solid lightblue;
 }
 
