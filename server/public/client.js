@@ -3,13 +3,17 @@ $(() => {
     clickHandlers();
 })
 
+// global variable to keep operator set to last button clicked.
 let operator = '';
 
 // function to POST equation object from inputs to '/history'
 function postEquation(){
+    //targeting our input field for the full equation to be posted
     let input = $('#numInput').val();
+    //splitting our text value into an array to be referenced per individual data keys
     const numArray = input.split(" ");
-    console.log(numArray);
+
+    //ajax POST methoid
     $.ajax({
         method: 'POST',
         url: '/history',
@@ -19,6 +23,7 @@ function postEquation(){
             num2: numArray[2]
         }
     }).then(function (response){
+        //appending history once we've sent new equation
         getHistory();
     }).catch(function(err){
         alert(err.responseText);
@@ -37,31 +42,57 @@ function getHistory(){
 
 //function to append history to DOM
 function historyAppend(response){
-    let x = (response.length - 1)
+    //putting solution append in an if statement to avoid throwing an error in console :)
+    if(response.length > 0){
+        // variable to target most recent solution
+        let x = (response.length - 1)
+        // appending most recent solution to DOM
+        $('#solution').text(`${response[x].solution}`);
+    }else if(response.length === 0){
+        // make sure text is emptied if /history is deleted
+        $('#solution').text('');
+    }
+    // emptying history so we're not appending doubles
     $('#history').empty();
+    // bröther may I have some LÖÖPS
     for(math of response){
         $('#history').append(`
         <li>${math.num1} ${math.operator} ${math.num2} = ${math.solution}</li>
         `)
         $('#numInput').val('');
     }
-    $('#solution').text(`${response[x].solution}`);
 }
 
+// function to DELETE '/history' and reappend DOM
 function clearHistory(){
     $.ajax({
         method: 'DELETE',
         url: '/history'
     }).then(function (response){
-        console.log(response)
         console.log("in clearHistory")
-    })
+    }).catch(function(err){
+        alert(err);
+    });
+    // run GET request again to 'clear' the DOM.
     getHistory();
-    $('#solution').text('');
+}
+
+// function to feed a clicked equation in history back into input field
+function rerunEquation(event){
+    // declaring the text of our event target as a variable
+    let rerun = $(event.target).text();
+    // splitting that text into an array
+    let rerunArray = rerun.split(" ");
+    // selecting only the parts of the array we want back in our input equation
+    $('#numInput').val(`${rerunArray[0]} ${rerunArray[2]} ${rerunArray[4]}`);
+    // setting our operator based on operator in array 
+    // (with added spaces) to account for our weird syntax in our server side post lol
+    operator = ` ${rerunArray[2]} `;
 }
 
 //an absurd amount of click handlers
 function clickHandlers(){
+    $('#history').on('click', 'li', rerunEquation);
     $('#1').on('click', button1);
     $('#2').on('click', button2);
     $('#3').on('click', button3);
@@ -87,12 +118,7 @@ function clickHandlers(){
 
 // calculator buttons:
 
-// function numberButtons(){
-//     let value = $(this).text();
-//     $('#numInput').val(input + value);
-// }
-
-// operators:
+// setting operators:
 function addButton(){
     let input = $('#numInput').val();
     operator = ' + ';

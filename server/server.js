@@ -37,8 +37,8 @@ app.post('/history', (req, res) => {
 })
 
 app.delete('/history', (req, res) => {
-    console.log('clearing history')
-    res.send(historyArray.length = 0);
+    historyArray.length = 0;
+    res.send('history cleared');
 })
 
 app.listen(PORT, () =>{

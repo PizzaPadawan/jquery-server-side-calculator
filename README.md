@@ -38,15 +38,15 @@ BASE MODE:
 
 STRETCH GOALS:
 - [x] Convert the interface to look and behave like an actual calculator
-    - [x] SERVER: possible need to take in only 1 key and output a solution from a single string.
+    - [] SERVER: possible need to take in only 1 key and output a solution from a single string.
     - [x] HTML: single input field, input buttons for 0-9 and decimal to add
     - [x] client.js: functionality to add clicked inputs to display in input. 
         - Equal button could do either of the following:
         - Change server side as listed above.
         - Possibly pass the string through some sort of function to separate the first number and second number into separate variables that can then pass into POST request data. 
 - [x] Only allow POST to happen if all necessary input is ready.
-- [] Allow a user to clear history section with a button (DELETE request)
-- [] Allow a user to click on an entry in the history list to re-run that calculation.
+- [x] Allow a user to clear history section with a button (DELETE request)
+- [x] Allow a user to click on an entry in the history list to re-run that calculation.
 
 BONUS ADD / CREATIVE IDEAS:
 - [] Use CSS to more accurately make it look like a calculator.
