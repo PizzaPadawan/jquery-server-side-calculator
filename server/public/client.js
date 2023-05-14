@@ -37,21 +37,12 @@ function getHistory(){
         url: '/history'
     }).then(function (response){
         historyAppend(response);
+        solutionAppend(response);
     });
 }
 
 //function to append history to DOM
 function historyAppend(response){
-    //putting solution append in an if statement to avoid throwing an error in console :)
-    if(response.length > 0){
-        // variable to target most recent solution
-        let x = (response.length - 1)
-        // appending most recent solution to DOM
-        $('#solution').text(`${response[x].solution}`);
-    }else if(response.length === 0){
-        // make sure text is emptied if /history is deleted
-        $('#solution').text('');
-    }
     // emptying history so we're not appending doubles
     $('#history').empty();
     // bröther may I have some LÖÖPS
@@ -59,6 +50,20 @@ function historyAppend(response){
         $('#history').append(`
         <li>${math.num1} ${math.operator} ${math.num2} = ${math.solution}</li>
         `)
+        $('#numInput').val('');
+    }
+}
+
+function solutionAppend(response){
+    //putting solution append in an if statement to avoid throwing an error in console :)
+    if(response.length > 0){
+        // variable to target most recent solution
+        let x = (response.length - 1)
+        // appending most recent solution to DOM
+        $('#numInput').val(`${response[x].solution}`)
+        console.log(response[x].solution);
+    }else if(response.length === 0){
+        // make sure text is emptied if /history is deleted
         $('#numInput').val('');
     }
 }
@@ -86,7 +91,7 @@ function rerunEquation(event){
     // selecting only the parts of the array we want back in our input equation
     $('#numInput').val(`${rerunArray[0]} ${rerunArray[2]} ${rerunArray[4]}`);
     // setting our operator based on operator in array 
-    // (with added spaces) to account for our weird syntax in our server side post lol
+    // with added spaces to account for our weird syntax in our server side post lol
     operator = ` ${rerunArray[2]} `;
 }
 
