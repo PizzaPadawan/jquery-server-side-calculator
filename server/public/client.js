@@ -12,8 +12,13 @@ function postEquation(){
     let input = $('#numInput').val();
     //splitting our text value into an array to be referenced per individual data keys
     const numArray = input.split(" ");
+    if(operator === ' / ' && (numArray[0] === '0' || numArray[2] === '0')){
+        $('#numInput').val('NOPE');
+        alert('Only Chuck Norris can divide by 0.');
+        return;
+    }
 
-    //ajax POST methoid
+    //ajax POST method
     $.ajax({
         method: 'POST',
         url: '/history',

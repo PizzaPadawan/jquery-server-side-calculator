@@ -37,19 +37,19 @@ header {
 .calculator {
     display: inline-flex;
     flex-direction: column;
-    background-color:cadetblue;
-    border: 5px solid gray;
+    background-color: cadetblue;
+    border-left: 3px solid slategray;
+    border-top: 3px solid lightblue;
+    border-right: 3px solid lightgray;
+    border-bottom: 3px solid darkslategray;
     margin: 1% 25%;
-    padding: 2%;
+    padding: 10px;
     border-radius: 10px;
 }
 
 .calculator button {
     font-size: 40px;
-}
-
-#C {
-    padding: 1px 3px;
+    width: 38.25px;
 }
 
 #numInput {
@@ -58,32 +58,12 @@ header {
     height: 46px;
 }
 
-#numInput, #solution {
+#numInput {
     font-family: 'Digital';
     font-size: 40px;
 }
 
-#add {
-    padding: 1px 5.455px;
-}
-
-#multiply {
-    padding: 1px 10.03px;
-}
-
-#decimal, #divide {
-    padding: 1px 12.12px;
-}
-
-#subtract {
-    padding: 1px 10.92px;
-}
-
-#equals {
-    padding: 1px 5.89px;
-}
-
-.historySection{
+.historySection {
     margin: 1%;
 }
 
@@ -93,7 +73,7 @@ header {
     font-size: 40px;
     padding: 10px 10px 25px 0px;
     border-left: 25px solid rgb(207, 138, 149);
-    border-bottom: 2px solid rgb(129, 80, 88);
+    border-bottom: 5px solid rgb(129, 80, 88);
     border-right: 0;
     border-top: 0;
     border-radius: 10px;
@@ -111,4 +91,3 @@ header {
     border-left: 1px solid lightcoral;
     border-bottom: 1px solid lightblue;
 }
-
